@@ -7,9 +7,10 @@ import in.gov.cbec.util.RssFragment;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
-public class NewsActivity extends FragmentActivity {
+public class NewsActivity extends FragmentActivity implements DialogInterface.OnClickListener{
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,12 @@ public class NewsActivity extends FragmentActivity {
         super.onSaveInstanceState(outState);
         outState.putBoolean("fragment_added", true);
     }
+
+	@Override
+	public void onClick(DialogInterface dialog, int which) {
+		// TODO Auto-generated method stub
+		dialog.dismiss();
+	}
 
 }
 

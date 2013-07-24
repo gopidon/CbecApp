@@ -22,15 +22,8 @@ public class SimpleErrorAlertDialog extends DialogFragment {
         AlertDialog.Builder errorDialog = new AlertDialog.Builder(getActivity());
 	    errorDialog.setTitle(title);
 	    errorDialog.setMessage("No internet connection.");
-	    errorDialog.setNegativeButton("OK",
-	    new DialogInterface.OnClickListener() {
-	 
-	      public void onClick(DialogInterface dialog, int id) {
-	        dialog.dismiss();
-	      }
-	    });
-	 
-	   AlertDialog errorAlert = errorDialog.create();
-	   return errorAlert;
+	    errorDialog.setNegativeButton("OK",(DialogInterface.OnClickListener)getActivity());
+	    AlertDialog errorAlert = errorDialog.create();
+	    return errorAlert;
     }
 }

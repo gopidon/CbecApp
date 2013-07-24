@@ -1,22 +1,30 @@
 package in.gov.cbec;
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import in.gov.cbec.customs.CustomsActsActivity;
+import in.gov.cbec.util.BAMainActivityListAdapter;
 import in.gov.cbec.util.CbecConstants;
+import in.gov.cbec.util.CbecUtils;
+import in.gov.cbec.util.DownloadFile;
 
 public class CustomsMainActivity extends ListActivity {
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ArrayAdapter<String>(this,
-        		android.R.layout.simple_list_item_1, CbecConstants.CBEC_CUSTOMS_ACTIVITY_CATEGORIES));
+       // setListAdapter(new ArrayAdapter<String>(this,
+        	//	android.R.layout.simple_list_item_1, CbecConstants.CBEC_CUSTOMS_ACTIVITY_CATEGORIES));
+        setListAdapter(new BAMainActivityListAdapter(this,CbecConstants.CBEC_CUSTOMS_ACTIVITY_CATEGORIES));
 
     }
 	
@@ -78,8 +86,27 @@ public class CustomsMainActivity extends ListActivity {
 	}
 	public void showTRGuide()
 	{
-		Intent i = new Intent(this, CbecWebViewActivity.class);
+		/*Intent i = new Intent(this, CbecWebViewActivity.class);
 		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_CUSTOMS_TR_GUIDE_LINK );
-        this.startActivity(i);
+        this.startActivity(i);*/
+		String fileKey=CbecConstants.CBEC_CUSTOMS_MODULE+"_"+"TRG";
+		String fileName=(String)CbecUtils.getFileNames().get(fileKey);
+		boolean fileExists = CbecUtils.doesFileExist(fileName);
+		if(!fileExists)
+		{
+			try
+			{
+				DownloadFile downloadFile = new DownloadFile(this,CbecConstants.CBEC_CUSTOMS_MODULE,fileKey);
+				downloadFile.execute(new URL((String)CbecUtils.getFileURLs().get(fileKey)));
+			}
+			catch(MalformedURLException e)
+			{
+				Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
+			}
+		}
+		else //show the file from cbec root dir
+		{
+			CbecUtils.showFileOnSDCard(fileName, this);
+		}
 	}
 }

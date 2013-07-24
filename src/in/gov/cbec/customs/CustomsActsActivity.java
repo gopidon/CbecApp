@@ -8,6 +8,8 @@ import com.actionbarsherlock.app.SherlockListActivity;
 
 
 import in.gov.cbec.R;
+import in.gov.cbec.util.ActsListAdapter;
+import in.gov.cbec.util.BAMainActivityListAdapter;
 import in.gov.cbec.util.CbecConstants;
 import in.gov.cbec.util.CbecUtils;
 import in.gov.cbec.util.DownloadFile;
@@ -32,8 +34,7 @@ public class CustomsActsActivity extends SherlockListActivity {
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ArrayAdapter<String>(this,
-        		android.R.layout.simple_list_item_1, CbecConstants.CBEC_CUSTOMS_ACTS));
+        setListAdapter(new ActsListAdapter(this,CbecConstants.CBEC_CUSTOMS_ACTS));
         
     }
 	

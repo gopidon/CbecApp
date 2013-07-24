@@ -1,15 +1,11 @@
 package in.gov.cbec.util;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 
 import android.app.Activity;
@@ -53,14 +49,17 @@ public class CbecUtils {
 	}
 	
 public static void showAssetsFile(Activity act, String fileName) {
-        File fileBrochure = new File("/sdcard/"+fileName);
+	    File SDCardRoot = Environment.getExternalStorageDirectory();
+	    String sdCardRoot = SDCardRoot.getAbsolutePath();
+        File fileBrochure = new File(sdCardRoot+fileName);
         if (!fileBrochure.exists())
         {
              CopyAssetsbrochure(act, fileName);
         } 
 
         /** PDF reader code */
-        File file = new File("/sdcard/"+fileName);        
+        
+        File file = new File(sdCardRoot+fileName);        
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndType(Uri.fromFile(file),"application/pdf");
@@ -79,6 +78,8 @@ public static void showAssetsFile(Activity act, String fileName) {
     
     
     private static void CopyAssetsbrochure(Activity act, String fileStr) {
+    	File SDCardRoot = Environment.getExternalStorageDirectory();
+    	String sdCardRoot = SDCardRoot.getAbsolutePath();
         AssetManager assetManager = act.getAssets();
         String[] files = null;
         try 
@@ -99,7 +100,7 @@ public static void showAssetsFile(Activity act, String fileName) {
                 try 
                 {
                   in = assetManager.open(files[i]);
-                  out = new FileOutputStream("/sdcard/" + files[i]);
+                  out = new FileOutputStream(sdCardRoot + files[i]);
                   copyFile(in, out);
                   in.close();
                   in = null;
@@ -160,6 +161,7 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("CUSTOMS_0","customs_act.pdf");
 		map.put("CUSTOMS_1","customs_manual.pdf");
 		map.put("CUSTOMS_2","customs_tariff.pdf");
+		map.put("CUSTOMS_TRG","customs_tr_guide.pdf");
 		
 		map.put("EXCISE_0","excise_act.pdf");
 		
@@ -175,6 +177,7 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("CUSTOMS_0","http://www.cbec.gov.in/customs/cs-act/custom-act-1962.pdf");
 		map.put("CUSTOMS_1","http://www.cbec.gov.in/cs-manual-2012.pdf");
 		map.put("CUSTOMS_2","http://www.cbec.gov.in/customs/cst2012-13/cst-act-1213.pdf");
+		map.put("CUSTOMS_TRG","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
 		
 		map.put("EXCISE_0","http://cestat.gov.in/CENTRAL EXCISE ACT.pdf");
 		
@@ -188,6 +191,7 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("customs_act.pdf","http://www.cbec.gov.in/customs/cs-act/custom-act-1962.pdf");
 		map.put("customs_manual.pdf","http://www.cbec.gov.in/cs-manual-2012.pdf");
 		map.put("customs_tariff.pdf","http://www.cbec.gov.in/customs/cst2012-13/cst-act-1213.pdf");
+		map.put("customs_tr_guide.pdf","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
 		
 		//map.put("excise_act.pdf","http://cestat.gov.in/CENTRAL EXCISE ACT.pdf");
 		
