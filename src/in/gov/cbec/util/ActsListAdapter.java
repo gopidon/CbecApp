@@ -1,7 +1,6 @@
 package in.gov.cbec.util;
 
 import in.gov.cbec.R;
-import in.gov.cbec.util.BAMainActivityListAdapter.ViewHolder;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

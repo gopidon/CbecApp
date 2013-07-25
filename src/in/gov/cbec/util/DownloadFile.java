@@ -20,16 +20,17 @@ public class DownloadFile extends AsyncTask<URL, Integer, Long> {
 	String fileKey;
 	
 	
-	public DownloadFile(Activity act,String module, String fileKey)
+	public DownloadFile(Activity act,String module, String fileKey, String fileName)
 	{
 		callingActivity = act;
 		this.module=module;
 		this.fileKey=fileKey;
+		this.fileName=fileName;
 	}
 	protected void onPreExecute()
 	{
 		mProgressDialog = new ProgressDialog(callingActivity);
-		mProgressDialog.setMessage("Downloading file ...");
+		mProgressDialog.setMessage(CbecMessages.CBEC_MSG_DOWNLOADING_FILE);
 		mProgressDialog.setIndeterminate(false);
 		mProgressDialog.setMax(100);
 		mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -42,7 +43,7 @@ public class DownloadFile extends AsyncTask<URL, Integer, Long> {
        // long totalSize = 0;
         for (int i = 0; i < count; i++) {
             
-        	fileName = (String)CbecUtils.getFileNames().get(fileKey);
+        	
         	downloadFileFromWebToSDCard(fileName,urls[i]);
         	
             if (isCancelled()) break;

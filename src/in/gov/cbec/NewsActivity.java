@@ -2,6 +2,7 @@ package in.gov.cbec;
 
 import in.gov.cbec.R;
 import in.gov.cbec.dialogs.SimpleErrorAlertDialog;
+import in.gov.cbec.util.CbecMessages;
 import in.gov.cbec.util.CbecUtils;
 import in.gov.cbec.util.RssFragment;
 import android.support.v4.app.DialogFragment;
@@ -38,8 +39,7 @@ public class NewsActivity extends FragmentActivity implements DialogInterface.On
     }
     
     void showDialog() {
-	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(
-	            "Error");
+	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(R.drawable.alert,CbecMessages.CBEC_MSG_ERR,CbecMessages.CBEC_MSG_CANT_FETCH_NEWS_ERR);
 	    newFragment.show(getSupportFragmentManager(), "dialog");
 	}
  

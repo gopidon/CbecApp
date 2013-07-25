@@ -1,7 +1,9 @@
 package in.gov.cbec.util;
 
-import java.util.HashMap;
-import java.util.Map;
+import android.graphics.drawable.Drawable;
+import in.gov.cbec.R;
+
+
 
 public class CbecConstants {
 	public static final String CBEC_DIR = "CBEC_DIR";
@@ -13,6 +15,8 @@ public class CbecConstants {
 	public static final String CBEC_CUSTOMS_MODULE="CUSTOMS";
 	public static final String CBEC_EXCISE_MODULE="EXCISE";
 	public static final String CBEC_ST_MODULE="ST";
+	
+	public static final int CBEC_ICON_ALERT = R.drawable.alert;
 	
 	public static final String CBEC_CUSTOMS_ACTIVITY_CATEGORIES[] = 
 		{"Acts and Manual",

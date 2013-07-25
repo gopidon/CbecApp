@@ -1,6 +1,7 @@
 package in.gov.cbec;
 
 import in.gov.cbec.dialogs.SimpleErrorAlertDialog;
+import in.gov.cbec.util.CbecMessages;
 import in.gov.cbec.util.CbecUtils;
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -47,8 +48,7 @@ public class SplashScreenActivity extends FragmentActivity implements DialogInte
         
     
     void showDialog() {
-	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(
-	            "Error");
+	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(R.drawable.alert,CbecMessages.CBEC_MSG_ERR,CbecMessages.CBEC_MSG_NO_INTERNET_ERR);
 	    newFragment.show(getSupportFragmentManager(), "dialog");
 	}
 

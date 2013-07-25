@@ -2,6 +2,7 @@ package in.gov.cbec;
 
 import in.gov.cbec.customs.CustomsActsActivity;
 import in.gov.cbec.st.STActsActivity;
+import in.gov.cbec.util.BAMainActivityListAdapter;
 import in.gov.cbec.util.CbecConstants;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -15,8 +16,9 @@ public class STMainActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.ba_layout);
-        setListAdapter(new ArrayAdapter<String>(this,
-        		android.R.layout.simple_list_item_1, CbecConstants.CBEC_ST_ACTIVITY_CATEGORIES));
+        //setListAdapter(new ArrayAdapter<String>(this,
+        		//android.R.layout.simple_list_item_1, CbecConstants.CBEC_ST_ACTIVITY_CATEGORIES));
+        setListAdapter(new BAMainActivityListAdapter(this,CbecConstants.CBEC_ST_ACTIVITY_CATEGORIES));
     }
 	
 	public void onListItemClick(ListView parent, View v, int position, long id)

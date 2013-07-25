@@ -26,11 +26,13 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	private Activity callingActivity;
 	private MenuItem refresh;
 	private ProgressDialog mProgressDialog;
+	private String callingModule;
 	
-	public RefreshActsAndManuals(Activity act, MenuItem mItem)
+	public RefreshActsAndManuals(Activity act, MenuItem mItem, String module)
 	{
 		callingActivity = act;
 		refresh = mItem;
+		callingModule=module;
 	}
 	
 	
@@ -38,7 +40,7 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	protected void onPreExecute()
 	{
 		mProgressDialog = new ProgressDialog(callingActivity);
-		mProgressDialog.setMessage("Preparing to update acts and manuals ...");
+		mProgressDialog.setMessage(CbecMessages.CBEC_MSG_REF_ACTS_MANUALS);
 		mProgressDialog.setIndeterminate(false);
 		mProgressDialog.setMax(100);
 		mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -49,7 +51,7 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	protected String doInBackground(URL... params) {
 		
 		
-		allFiles = CbecUtils.getAllFiles();
+		allFiles = getFileNamesAndURLs();
 		
 		for (Entry<String, String> entry : allFiles.entrySet()) {
 		    fileName = entry.getKey();
@@ -72,15 +74,31 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	protected void onProgressUpdate(Integer... progress) {
         //setProgressPercent(progress[0]);
     	super.onProgressUpdate(progress);
-    	mProgressDialog.setMessage("Updating "+fileName+" ...");
+    	mProgressDialog.setMessage(CbecMessages.CBEC_MSG_UPDATING+fileName+"...");
         mProgressDialog.setProgress(progress[0]);
     }
 	
 	protected void onPostExecute(String result) {
-		 mProgressDialog.setMessage("Updating complete!");
+		 mProgressDialog.setMessage(CbecMessages.CBEC_MSG_UPD_COMPLETE);
 	     refresh.collapseActionView();
 	     refresh.setActionView(null);
 	     mProgressDialog.dismiss();
+	}
+	
+	public HashMap getFileNamesAndURLs()
+	{
+		if(CbecConstants.CBEC_CUSTOMS_MODULE.equals(callingModule))
+		{
+			return CbecUtils.getCustomsFileNamesAndURLs();
+		}
+		else if(CbecConstants.CBEC_EXCISE_MODULE.equals(callingModule))
+		{
+			return CbecUtils.getExciseFileNamesAndURLs();
+		}
+		else
+		{
+			return CbecUtils.getSTFileNamesAndURLs();
+		}
 	}
 	
 	public void downloadFileFromWebToSDCard(String fileName,URL url)

@@ -2,6 +2,7 @@ package in.gov.cbec.excise;
 
 import in.gov.cbec.CbecWebViewActivity;
 import in.gov.cbec.R;
+import in.gov.cbec.util.ActsListAdapter;
 import in.gov.cbec.util.CbecConstants;
 import in.gov.cbec.util.CbecUtils;
 import in.gov.cbec.util.DownloadFile;
@@ -25,12 +26,18 @@ import android.widget.ListView;
 
 public class ExciseActsActivity extends SherlockListActivity {
 	private MenuItem menuItem;
+	private String module;
 
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ArrayAdapter<String>(this,
-        		android.R.layout.simple_list_item_1, CbecConstants.CBEC_EXCISE_ACTS));
+        module=CbecConstants.CBEC_EXCISE_MODULE;
+        setListAdapter(new ActsListAdapter(this,CbecConstants.CBEC_EXCISE_ACTS));
     }
+	
+	public String getModule()
+	{
+		return module;
+	}
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getSupportMenuInflater();
@@ -44,7 +51,7 @@ public class ExciseActsActivity extends SherlockListActivity {
 	      menuItem = item;
 	      menuItem.setActionView(R.layout.progressbar);
 	      menuItem.expandActionView();
-	      RefreshActsAndManuals task = new RefreshActsAndManuals(this,menuItem);
+	      RefreshActsAndManuals task = new RefreshActsAndManuals(this,menuItem,module);
 			try {
 				task.execute(new URL("http://www.cbec.gov.in"));
 			} catch (MalformedURLException e) {
@@ -76,14 +83,14 @@ public class ExciseActsActivity extends SherlockListActivity {
 		else
 		{
 			String fileKey=CbecConstants.CBEC_EXCISE_MODULE+"_"+String.valueOf(position);
-			String fileName=(String)CbecUtils.getFileNames().get(fileKey);
+			String fileName=(String)CbecUtils.getExciseFileNames().get(fileKey);
 			boolean fileExists = CbecUtils.doesFileExist(fileName);
 			if(!fileExists)
 			{
 				try
 				{
-					DownloadFile downloadFile = new DownloadFile(this,CbecConstants.CBEC_EXCISE_MODULE,fileKey);
-					downloadFile.execute(new URL((String)CbecUtils.getFileURLs().get(fileKey)));
+					DownloadFile downloadFile = new DownloadFile(this,CbecConstants.CBEC_EXCISE_MODULE,fileKey,fileName);
+					downloadFile.execute(new URL((String)CbecUtils.getExciseFileURLs().get(fileKey)));
 				}
 				catch(MalformedURLException e)
 				{

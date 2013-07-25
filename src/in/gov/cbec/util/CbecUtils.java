@@ -1,6 +1,10 @@
 package in.gov.cbec.util;
 
 
+import in.gov.cbec.CbecWebViewActivity;
+import in.gov.cbec.R;
+import in.gov.cbec.dialogs.SimpleErrorAlertDialog;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,6 +21,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -120,7 +125,7 @@ public static void showAssetsFile(Activity act, String fileName) {
     
     
     
-    public static void showFileOnSDCard(String fileName, Activity act)
+    public static boolean showFileOnSDCard(String fileName, Activity act)
     {
     	File SDCardRoot = Environment.getExternalStorageDirectory();
     	String sdCardRoot = SDCardRoot.getAbsolutePath();
@@ -134,15 +139,29 @@ public static void showAssetsFile(Activity act, String fileName) {
         try 
         {
             act.startActivity(intent);
+            //throw new ActivityNotFoundException();
         } 
         catch (ActivityNotFoundException e) 
         {
-             Toast.makeText(act, "NO Pdf Viewer", Toast.LENGTH_SHORT).show();
+             Toast.makeText(act, CbecMessages.CBEC_MSG_NO_PDF_VWR_ERR, Toast.LENGTH_SHORT).show();
+             return false;
         }
         catch(Exception e)
         {
-        	Toast.makeText(act,"Unforseen error",Toast.LENGTH_SHORT).show();
+        	Toast.makeText(act,CbecMessages.CBEC_MSG_UFSEEN_ERR,Toast.LENGTH_SHORT).show();
         }
+        return true;
+    }
+    
+    public static void showSDCardFileOnGoogleDocs(Activity act,String fileName)
+    {
+    	    Intent i = new Intent(act, CbecWebViewActivity.class);
+	    	HashMap<String, String> files = CbecUtils.getAllFilesAndURLs();
+	    	String url = files.get(fileName);
+	    	String gUrl = CbecConstants.CBEC_PREFIX_GDOCS_LINK + url;
+			i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, gUrl);
+	        act.startActivity(i);
+    	
     }
 
  private static void copyFile(InputStream in, OutputStream out) throws IOException {
@@ -185,7 +204,7 @@ public static void showAssetsFile(Activity act, String fileName) {
 		return map;
  }
  
- public static HashMap<String, String> getAllFiles()
+ public static HashMap<String, String> getAllFilesAndURLs()
  {
 	 HashMap<String, String> map = new HashMap<String, String>();
 		map.put("customs_act.pdf","http://www.cbec.gov.in/customs/cs-act/custom-act-1962.pdf");
@@ -196,6 +215,83 @@ public static void showAssetsFile(Activity act, String fileName) {
 		//map.put("excise_act.pdf","http://cestat.gov.in/CENTRAL EXCISE ACT.pdf");
 		
 		map.put("st_act.pdf","http://www.servicetax.gov.in/st-act-upd-dec10.pdf");
+		return map;
+ }
+ 
+ public static HashMap<String, String> getCustomsFileNames()
+ {
+	    HashMap<String, String> map = new HashMap<String, String>();
+		map.put("CUSTOMS_0","customs_act.pdf");
+		map.put("CUSTOMS_1","customs_manual.pdf");
+		map.put("CUSTOMS_2","customs_tariff.pdf");
+		map.put("CUSTOMS_TRG","customs_tr_guide.pdf");
+		
+		
+		
+		return map;
+ }
+ 
+ public static HashMap<String, String> getCustomsFileURLs()
+ {
+	    HashMap<String, String> map = new HashMap<String, String>();
+		map.put("CUSTOMS_0","http://www.cbec.gov.in/customs/cs-act/custom-act-1962.pdf");
+		map.put("CUSTOMS_1","http://www.cbec.gov.in/cs-manual-2012.pdf");
+		map.put("CUSTOMS_2","http://www.cbec.gov.in/customs/cst2012-13/cst-act-1213.pdf");
+		map.put("CUSTOMS_TRG","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
+		
+		
+		return map;
+ }
+ 
+ public static HashMap<String, String> getCustomsFileNamesAndURLs()
+ {
+	 HashMap<String, String> map = new HashMap<String, String>();
+		map.put("customs_act.pdf","http://www.cbec.gov.in/customs/cs-act/custom-act-1962.pdf");
+		map.put("customs_manual.pdf","http://www.cbec.gov.in/cs-manual-2012.pdf");
+		map.put("customs_tariff.pdf","http://www.cbec.gov.in/customs/cst2012-13/cst-act-1213.pdf");
+		map.put("customs_tr_guide.pdf","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
+		return map;
+ }
+ 
+ public static HashMap<String, String> getExciseFileNames()
+ {
+	    HashMap<String, String> map = new HashMap<String, String>();
+		map.put("EXCISE_0","excise_act.pdf");
+		return map;
+ }
+ 
+ public static HashMap<String, String> getExciseFileURLs()
+ {
+	    HashMap<String, String> map = new HashMap<String, String>();
+		//map.put("EXCISE_0","http://cestat.gov.in/CENTRAL EXCISE ACT.pdf");
+		return map;
+ }
+ 
+ public static HashMap<String, String> getExciseFileNamesAndURLs()
+ {
+	 HashMap<String, String> map = new HashMap<String, String>();
+	//map.put("excise_act.pdf","http://cestat.gov.in/CENTRAL EXCISE ACT.pdf");
+	return map;
+ }
+ 
+ public static HashMap<String, String> getSTFileNames()
+ {
+	    HashMap<String, String> map = new HashMap<String, String>();
+		map.put("ST_0","st_act.pdf");
+		return map;
+ }
+ 
+ public static HashMap<String, String> getSTFileURLs()
+ {
+	    HashMap<String, String> map = new HashMap<String, String>();
+		map.put("ST_0","http://www.servicetax.gov.in/st-act-upd-dec10.pdf");
+		return map;
+ }
+ 
+ public static HashMap<String, String> getSTFileNamesAndURLs()
+ {
+	    HashMap<String, String> map = new HashMap<String, String>();
+	    map.put("st_act.pdf","http://www.servicetax.gov.in/st-act-upd-dec10.pdf");
 		return map;
  }
 }

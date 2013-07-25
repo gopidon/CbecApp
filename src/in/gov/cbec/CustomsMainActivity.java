@@ -5,32 +5,44 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import in.gov.cbec.customs.CustomsActsActivity;
+import in.gov.cbec.dialogs.SimpleErrorAlertDialog;
 import in.gov.cbec.util.BAMainActivityListAdapter;
 import in.gov.cbec.util.CbecConstants;
+import in.gov.cbec.util.CbecMessages;
 import in.gov.cbec.util.CbecUtils;
 import in.gov.cbec.util.DownloadFile;
+import in.gov.cbec.util.RssAdapter;
+import in.gov.cbec.util.RssItem;
 
-public class CustomsMainActivity extends ListActivity {
+public class CustomsMainActivity extends FragmentActivity implements OnItemClickListener, DialogInterface.OnClickListener {
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setContentView(R.layout.customsmain);
+        ListView lv = (ListView)this.findViewById(R.id.cusMainListView);
        // setListAdapter(new ArrayAdapter<String>(this,
         	//	android.R.layout.simple_list_item_1, CbecConstants.CBEC_CUSTOMS_ACTIVITY_CATEGORIES));
-        setListAdapter(new BAMainActivityListAdapter(this,CbecConstants.CBEC_CUSTOMS_ACTIVITY_CATEGORIES));
-
+        lv.setAdapter(new BAMainActivityListAdapter(this,CbecConstants.CBEC_CUSTOMS_ACTIVITY_CATEGORIES));
+        lv.setOnItemClickListener(this);
     }
 	
-	public void onListItemClick(ListView parent, View v, int position, long id)
-	{
-		//Toast.makeText(this,"You have selected " + actTypes[position],Toast.LENGTH_SHORT).show();
+	
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		switch(position)
 		{
 			case 0:
@@ -49,8 +61,7 @@ public class CustomsMainActivity extends ListActivity {
 				showTRGuide();
 				break;
 		}
-			
-	}
+    }
 	
 	public void showCustomsActs()
 	{
@@ -96,7 +107,7 @@ public class CustomsMainActivity extends ListActivity {
 		{
 			try
 			{
-				DownloadFile downloadFile = new DownloadFile(this,CbecConstants.CBEC_CUSTOMS_MODULE,fileKey);
+				DownloadFile downloadFile = new DownloadFile(this,CbecConstants.CBEC_CUSTOMS_MODULE,fileKey,fileName);
 				downloadFile.execute(new URL((String)CbecUtils.getFileURLs().get(fileKey)));
 			}
 			catch(MalformedURLException e)
@@ -106,7 +117,29 @@ public class CustomsMainActivity extends ListActivity {
 		}
 		else //show the file from cbec root dir
 		{
-			CbecUtils.showFileOnSDCard(fileName, this);
+			boolean shown = CbecUtils.showFileOnSDCard(fileName, this);
+			if(!shown)
+			{
+				if(CbecUtils.isOnline(this))
+				{
+					CbecUtils.showSDCardFileOnGoogleDocs(this, fileName);
+				}
+				else
+				{
+					DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(R.drawable.alert,CbecMessages.CBEC_MSG_ERR,CbecMessages.CBEC_MSG_NO_INTERNET_ERR2);
+				    newFragment.show(this.getSupportFragmentManager(), "dialog");
+				}
+			}
 		}
 	}
+
+
+	@Override
+	public void onClick(DialogInterface dialog, int arg1) {
+		// TODO Auto-generated method stub
+		dialog.dismiss();
+	}
+
+	
+
 }
