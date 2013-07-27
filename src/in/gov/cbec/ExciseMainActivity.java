@@ -30,11 +30,15 @@ public class ExciseMainActivity extends ListActivity {
 				showExciseActs();
 				break;
 			case 1:
-				showExciseNotifs();
+				showExciseRules();
 				break;
 			case 2:
+				showExciseNotifs();
+				break;
+			case 3:
 				showExciseCirculars();
 				break;
+			
 		}
 			
 	}
@@ -56,6 +60,12 @@ public class ExciseMainActivity extends ListActivity {
 	{
 		Intent i = new Intent(this, CbecWebViewActivity.class);
 		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_EXCISE_CIRCULARS_LINK );
+        this.startActivity(i);
+	}
+	public void showExciseRules()
+	{
+		Intent i = new Intent(this, CbecWebViewActivity.class);
+		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_EXCISE_RULES_LINK );
         this.startActivity(i);
 	}
 }

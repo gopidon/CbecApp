@@ -30,11 +30,15 @@ public class STMainActivity extends ListActivity {
 				showSTActs();
 				break;
 			case 1:
-				showSTNotifs();
+				showSTRules();
 				break;
 			case 2:
+				showSTNotifs();
+				break;
+			case 3:
 				showSTCirculars();
 				break;
+			
 		}
 			
 	}
@@ -56,6 +60,12 @@ public class STMainActivity extends ListActivity {
 	{
 		Intent i = new Intent(this, CbecWebViewActivity.class);
 		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_ST_CIRCULARS_LINK );
+        this.startActivity(i);
+	}
+	public void showSTRules()
+	{
+		Intent i = new Intent(this, CbecWebViewActivity.class);
+		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_ST_RULES_LINK );
         this.startActivity(i);
 	}
 }

@@ -1,6 +1,6 @@
 package in.gov.cbec.util;
 
-import android.graphics.drawable.Drawable;
+
 import in.gov.cbec.R;
 
 
@@ -20,10 +20,11 @@ public class CbecConstants {
 	
 	public static final String CBEC_CUSTOMS_ACTIVITY_CATEGORIES[] = 
 		{"Acts and Manual",
+		"Rules",
 		"Notifications",
 		"Circulars",
-		"Baggage Rules",
-		"Traveller's Guide"
+		"Traveller's Guide",
+		"Regulations"
 		};
 	
 	public static final String CBEC_CUSTOMS_ACTS[] = 
@@ -35,21 +36,23 @@ public class CbecConstants {
 	
 	
 	public static final String CBEC_EXCISE_ACTIVITY_CATEGORIES[] =
-		{"Acts and Manual",
+		{"Acts",
+		"Rules",
 		"Notifications",
 		"Circulars"
+		
 		};
 	
 	public static final String CBEC_EXCISE_ACTS[] = 
-		{"Excise Act",
-		"Excise Manual"
+		{"Excise Act"
 	};
 	
 	public static final String CBEC_ST_ACTIVITY_CATEGORIES[] = {
-		"Acts and Manual",
+		"Acts",
+		"Rules",
 		"Notifications",
 		"Circulars"
-		};
+	};
 	
 	public static final String CBEC_ST_ACTS[] = 
 		{"Service Tax Act"
@@ -63,15 +66,18 @@ public class CbecConstants {
 	public static final String CBEC_WEB_CUSTOMS_CIRCULARS_LINK = "http://www.cbec.gov.in/customs/cscirc-mainbott.htm";
 	public static final String CBEC_WEB_CUSTOMS_BG_RULES_LINK = "http://www.cbec.gov.in/customs/cs-act/formatted-htmls/bgge-rules1998-ason-march'13.htm";
 	public static final String CBEC_WEB_CUSTOMS_TR_GUIDE_LINK = "https://docs.google.com/viewer?url=http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf";
+	public static final String CBEC_WEB_CUSTOMS_RULES_LINK="http://cbec.gov.in/customs/cs-act/formatted-htmls/cs-rules-idx.htm";
+	public static final String CBEC_WEB_CUSTOMS_REGS_LINK="http://cbec.gov.in/customs/cs-act/formatted-htmls/cs-regu-idx.htm";
 	
 	public static final String CBEC_WEB_EXCISE_ACTS_LINK = "http://www.cbec.gov.in/excise/cx-act/cx-act-idx.htm";
 	public static final String CBEC_WEB_EXCISE_NOTIFS_LINK = "http://www.cbec.gov.in/excise/cx-act/cx-notfns-idx.htm";
 	public static final String CBEC_WEB_EXCISE_CIRCULARS_LINK = "http://www.cbec.gov.in/excise/cx-circ-mainbott.html";
+	public static final String CBEC_WEB_EXCISE_RULES_LINK="http://cbec.gov.in/excise/cxrules/cx-rules-main.htm";
 	
 	
 	public static final String CBEC_WEB_ST_ACTS_LINK = "https://docs.google.com/viewer?url=http://www.servicetax.gov.in/stact-july12.pdf";
-	public static final String CBEC_WEB_ST_NOTIFS_LINK = "http://www.servicetax.gov.in/st-notfns-home.htm";
-	public static final String CBEC_WEB_ST_CIRCULARS_LINK = "http://www.servicetax.gov.in/st-circulars-home.htm";
-	
+	public static final String CBEC_WEB_ST_NOTIFS_LINK = "http://www.servicetax.gov.in/servtax_notfns_idx-bottom.htm";
+	public static final String CBEC_WEB_ST_CIRCULARS_LINK = "http://www.servicetax.gov.in/stcircular.htm";
+	public static final String CBEC_WEB_ST_RULES_LINK = "http://www.servicetax.gov.in/st-rulemainpg.htm";
 	
 }

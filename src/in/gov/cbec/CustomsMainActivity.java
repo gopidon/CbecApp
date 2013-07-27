@@ -49,17 +49,20 @@ public class CustomsMainActivity extends FragmentActivity implements OnItemClick
 				showCustomsActs();
 				break;
 			case 1:
-				showCustomsNotifs();
+				showCusRules();
 				break;
 			case 2:
-				showCustomsCirculars();
+				showCustomsNotifs();
 				break;
 			case 3:
-				showBaggageRules();
+				showCustomsCirculars();
 				break;
 			case 4:
 				showTRGuide();
 				break;
+			case 5:
+				showCusRegulations();
+				break;	
 		}
     }
 	
@@ -93,6 +96,18 @@ public class CustomsMainActivity extends FragmentActivity implements OnItemClick
 	{
 		Intent i = new Intent(this, CbecWebViewActivity.class);
 		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_CUSTOMS_BG_RULES_LINK );
+        this.startActivity(i);
+	}
+	public void showCusRules()
+	{
+		Intent i = new Intent(this, CbecWebViewActivity.class);
+		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_CUSTOMS_RULES_LINK );
+        this.startActivity(i);
+	}
+	public void showCusRegulations()
+	{
+		Intent i = new Intent(this, CbecWebViewActivity.class);
+		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_CUSTOMS_REGS_LINK );
         this.startActivity(i);
 	}
 	public void showTRGuide()

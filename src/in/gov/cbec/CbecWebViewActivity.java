@@ -26,10 +26,11 @@ public class CbecWebViewActivity extends Activity {
 		wv = (WebView)this.findViewById(R.id.wv1);
         
         wv.getSettings().setJavaScriptEnabled(true);
-        wv.setWebViewClient(new CbecWebViewClient());
+        wv.setWebViewClient(new CbecWebViewClient(this));
         //WebView wv = (WebView)this.getView();  
-        Log.d(CbecConstants.CBEC_DEBUG_MSG_TAG+":CbecWebViewActivity:shouldOverrideUrlLoading()", link);
+        //Log.d(CbecConstants.CBEC_DEBUG_MSG_TAG+":CbecWebViewActivity:shouldOverrideUrlLoading()", link);
         wv.loadUrl(link);
+        //wv.loadDataWithBaseURL("http://www.servicetax.gov.in", "st-rules-home.htm", "text/html", "utf-8", null);
 		
 	}
 	

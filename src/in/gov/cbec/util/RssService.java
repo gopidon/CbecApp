@@ -19,9 +19,12 @@ import android.util.Log;
 
 public class RssService extends IntentService {
 	 
-    private static final String RSS_FEED1 = "http://feeds2.feedburner.com/CaclubindiacomNotices";
-    private static final String RSS_FEED2 = "http://feeds.feedburner.com/indiantaxupdates";
-    private static final String[] RSS_FEEDS = {RSS_FEED1,RSS_FEED2};
+	private static final String RSS_FEED = "";
+    private static final String RSS_FEED1 = "http://feeds.feedburner.com/indiantaxupdates";
+    private static final String RSS_FEED2 = "http://feeds.feedburner.com/SimpleTaxIndia";
+    private static final String RSS_FEED3 = "http://feeds2.feedburner.com/CaclubindiacomArticles";
+    
+    private static final String[] RSS_FEEDS = {RSS_FEED1,RSS_FEED2,RSS_FEED3};
     public static final String ITEMS = "items";
     public static final String RECEIVER = "receiver";
  

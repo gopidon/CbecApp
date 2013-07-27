@@ -1,6 +1,7 @@
 package in.gov.cbec.util;
 
 public class CbecMessages {
+	public static final String CBEC_MSG_LOADING = "Loading ...";
 	public static final String CBEC_MSG_REF_ACTS_MANUALS = "Updating acts and manuals...";
 	public static final String CBEC_MSG_UPDATING = "Updating ";
 	public static final String CBEC_MSG_UPD_COMPLETE = "Update Complete!";
