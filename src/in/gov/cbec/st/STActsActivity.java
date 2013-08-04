@@ -60,7 +60,7 @@ public class STActsActivity extends SherlockListActivity {
 				task.execute(new URL("http://www.cbec.gov.in"));
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
-				Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
+				//Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
 			}
 	      break;
 	    default:
@@ -92,7 +92,7 @@ public class STActsActivity extends SherlockListActivity {
 			}
 			catch(MalformedURLException e)
 			{
-				Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
+				//Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
 			}
 		}
 		else //show the file from cbec root dir

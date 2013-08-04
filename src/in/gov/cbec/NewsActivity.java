@@ -45,7 +45,7 @@ public class NewsActivity extends FragmentActivity implements DialogInterface.On
     }
     
     void showDialog() {
-	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(R.drawable.alert,CbecMessages.CBEC_MSG_ERR,CbecMessages.CBEC_MSG_CANT_FETCH_NEWS_ERR);
+	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(R.drawable.ic_alert,CbecMessages.CBEC_MSG_ERR,CbecMessages.CBEC_MSG_CANT_FETCH_NEWS_ERR);
 	    newFragment.show(getSupportFragmentManager(), "dialog");
 	}
  
@@ -59,6 +59,14 @@ public class NewsActivity extends FragmentActivity implements DialogInterface.On
 	public void onClick(DialogInterface dialog, int which) {
 		// TODO Auto-generated method stub
 		dialog.dismiss();
+		//this.gotoCbecMainActivity();
+	}
+	
+	public void gotoCbecMainActivity()
+	{
+		Intent i = new Intent(this, CbecMainActivity.class);
+		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
 	}
 
 }

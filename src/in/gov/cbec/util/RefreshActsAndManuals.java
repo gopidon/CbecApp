@@ -23,10 +23,12 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	private HashMap<String, String> allFiles;
 	private String fileName;
 	private String fileURL;
+	private String fileDispName;
 	private Activity callingActivity;
 	private MenuItem refresh;
 	private ProgressDialog mProgressDialog;
 	private String callingModule;
+	private String[] dispNames;
 	
 	public RefreshActsAndManuals(Activity act, MenuItem mItem, String module)
 	{
@@ -50,19 +52,20 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	@Override
 	protected String doInBackground(URL... params) {
 		
-		
+		int i=0;
 		allFiles = getFileNamesAndURLs();
 		
 		for (Entry<String, String> entry : allFiles.entrySet()) {
 		    fileName = entry.getKey();
 		    fileURL = entry.getValue();
+		    fileDispName = dispNames[i++];
 		    try {
 		    	//mProgressDialog.setMessage("Updating "+fileName+" ...");
 				downloadFileFromWebToSDCard(fileName,new URL(fileURL));
 				
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
-				Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
+				//Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
 			}
         	if (isCancelled()) break;
 		    // ...
@@ -74,7 +77,7 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	protected void onProgressUpdate(Integer... progress) {
         //setProgressPercent(progress[0]);
     	super.onProgressUpdate(progress);
-    	mProgressDialog.setMessage(CbecMessages.CBEC_MSG_UPDATING+fileName+"...");
+    	mProgressDialog.setMessage(CbecMessages.CBEC_MSG_UPDATING+fileDispName+"...");
         mProgressDialog.setProgress(progress[0]);
     }
 	
@@ -89,14 +92,17 @@ public class RefreshActsAndManuals extends AsyncTask<URL, Integer, String> {
 	{
 		if(CbecConstants.CBEC_CUSTOMS_MODULE.equals(callingModule))
 		{
+			dispNames = CbecConstants.CBEC_CUSTOMS_ACTS;
 			return CbecUtils.getCustomsFileNamesAndURLs();
 		}
 		else if(CbecConstants.CBEC_EXCISE_MODULE.equals(callingModule))
 		{
+			dispNames = CbecConstants.CBEC_EXCISE_ACTS;
 			return CbecUtils.getExciseFileNamesAndURLs();
 		}
 		else
 		{
+			dispNames = CbecConstants.CBEC_ST_ACTS;
 			return CbecUtils.getSTFileNamesAndURLs();
 		}
 	}

@@ -30,7 +30,8 @@ public class CbecConstants {
 	public static final String CBEC_CUSTOMS_ACTS[] = 
 		{"Customs Act",
 		"Customs Manual",
-		"Customs Tariff Act"
+		"Customs Tariff Act",
+		"Customs Traveller's Guide"
 		};
 	
 	

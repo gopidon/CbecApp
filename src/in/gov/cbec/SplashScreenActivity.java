@@ -48,7 +48,7 @@ public class SplashScreenActivity extends FragmentActivity implements DialogInte
         
     
     void showDialog() {
-	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(R.drawable.alert,CbecMessages.CBEC_MSG_ERR,CbecMessages.CBEC_MSG_NO_INTERNET_ERR);
+	    DialogFragment newFragment = SimpleErrorAlertDialog.newInstance(R.drawable.ic_alert,CbecMessages.CBEC_MSG_ALERT,CbecMessages.CBEC_MSG_NO_INTERNET_ERR);
 	    newFragment.show(getSupportFragmentManager(), "dialog");
 	}
 
@@ -62,6 +62,7 @@ public class SplashScreenActivity extends FragmentActivity implements DialogInte
 	public void gotoMainActivity()
 	{
 		Intent i = new Intent(SplashScreenActivity.this, CbecMainActivity.class);
+		//i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
 	}
 }

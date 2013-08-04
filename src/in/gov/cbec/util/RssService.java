@@ -47,9 +47,9 @@ public class RssService extends IntentService {
            // }
             
         } catch (XmlPullParserException e) {
-            Log.w(e.getMessage(), e);
+            //Log.w(e.getMessage(), e);
         } catch (IOException e) {
-            Log.w(e.getMessage(), e);
+           // Log.w(e.getMessage(), e);
         }
         Bundle bundle = new Bundle();
         bundle.putSerializable(ITEMS, (Serializable) rssAllItems);

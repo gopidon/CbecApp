@@ -93,7 +93,7 @@ public static void showAssetsFile(Activity act, String fileName) {
         } 
         catch (IOException e)
         {
-            Log.e("tag", e.getMessage());
+            //Log.e("tag", e.getMessage());
         }
         for(int i=0; i<files.length; i++)
         {
@@ -116,7 +116,7 @@ public static void showAssetsFile(Activity act, String fileName) {
                 } 
                 catch(Exception e)
                 {
-                    Log.e(CbecConstants.CBEC_ERR_MSG_TAG, e.getMessage());
+                   // Log.e(CbecConstants.CBEC_ERR_MSG_TAG, e.getMessage());
                 } 
                 
             }
@@ -180,7 +180,7 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("CUSTOMS_0","customs_act.pdf");
 		map.put("CUSTOMS_1","customs_manual.pdf");
 		map.put("CUSTOMS_2","customs_tariff.pdf");
-		map.put("CUSTOMS_TRG","customs_tr_guide.pdf");
+		map.put("CUSTOMS_3","customs_tr_guide.pdf");
 		
 		map.put("EXCISE_0","excise_act.pdf");
 		
@@ -196,9 +196,9 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("CUSTOMS_0","http://www.cbec.gov.in/customs/cs-act/custom-act-1962.pdf");
 		map.put("CUSTOMS_1","http://www.cbec.gov.in/cs-manual-2012.pdf");
 		map.put("CUSTOMS_2","http://www.cbec.gov.in/customs/cst2012-13/cst-act-1213.pdf");
-		map.put("CUSTOMS_TRG","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
+		map.put("CUSTOMS_3","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
 		
-		map.put("EXCISE_0","http://cestat.gov.in/CENTRAL EXCISE ACT.pdf");
+		//map.put("EXCISE_0","http://cestat.gov.in/CENTRAL EXCISE ACT.pdf");
 		
 		map.put("ST_0","http://www.servicetax.gov.in/st-act-upd-dec10.pdf");
 		return map;
@@ -224,12 +224,14 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("CUSTOMS_0","customs_act.pdf");
 		map.put("CUSTOMS_1","customs_manual.pdf");
 		map.put("CUSTOMS_2","customs_tariff.pdf");
-		map.put("CUSTOMS_TRG","customs_tr_guide.pdf");
+		map.put("CUSTOMS_3","customs_tr_guide.pdf");
 		
 		
 		
 		return map;
  }
+ 
+ 
  
  public static HashMap<String, String> getCustomsFileURLs()
  {
@@ -237,7 +239,7 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("CUSTOMS_0","http://www.cbec.gov.in/customs/cs-act/custom-act-1962.pdf");
 		map.put("CUSTOMS_1","http://www.cbec.gov.in/cs-manual-2012.pdf");
 		map.put("CUSTOMS_2","http://www.cbec.gov.in/customs/cst2012-13/cst-act-1213.pdf");
-		map.put("CUSTOMS_TRG","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
+		map.put("CUSTOMS_3","http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf");
 		
 		
 		return map;
@@ -260,6 +262,8 @@ public static void showAssetsFile(Activity act, String fileName) {
 		return map;
  }
  
+ 
+ 
  public static HashMap<String, String> getExciseFileURLs()
  {
 	    HashMap<String, String> map = new HashMap<String, String>();
@@ -280,6 +284,8 @@ public static void showAssetsFile(Activity act, String fileName) {
 		map.put("ST_0","st_act.pdf");
 		return map;
  }
+ 
+ 
  
  public static HashMap<String, String> getSTFileURLs()
  {

@@ -8,6 +8,7 @@ public class CbecMessages {
 	public static final String CBEC_MSG_DOWNLOADING_FILE = "Downloading file...";
 	
 	public static final String CBEC_MSG_ERR = "Error";
+	public static final String CBEC_MSG_ALERT = "Alert";
 	public static final String CBEC_MSG_NO_PDF_VWR_ERR = "NO PDF Viewer!";
 	public static final String CBEC_MSG_UFSEEN_ERR = "Unforseen Error!";
 	public static final String CBEC_MSG_NO_INTERNET_ERR = "Can't detect connection to internet! Some features of the app may not be available.";

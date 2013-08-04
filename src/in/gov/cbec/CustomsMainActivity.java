@@ -115,7 +115,7 @@ public class CustomsMainActivity extends FragmentActivity implements OnItemClick
 		/*Intent i = new Intent(this, CbecWebViewActivity.class);
 		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_CUSTOMS_TR_GUIDE_LINK );
         this.startActivity(i);*/
-		String fileKey=CbecConstants.CBEC_CUSTOMS_MODULE+"_"+"TRG";
+		String fileKey=CbecConstants.CBEC_CUSTOMS_MODULE+"_"+"3";
 		String fileName=(String)CbecUtils.getFileNames().get(fileKey);
 		boolean fileExists = CbecUtils.doesFileExist(fileName);
 		if(!fileExists)
@@ -127,7 +127,7 @@ public class CustomsMainActivity extends FragmentActivity implements OnItemClick
 			}
 			catch(MalformedURLException e)
 			{
-				Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
+				//Log.e(CbecConstants.CBEC_ERR_MSG_TAG,e.getMessage());
 			}
 		}
 		else //show the file from cbec root dir
