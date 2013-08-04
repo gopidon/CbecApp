@@ -34,17 +34,17 @@ public class RssService extends IntentService {
  
     @Override
     protected void onHandleIntent(Intent intent) {
-        
+        int pos = intent.getIntExtra("position", 0);
     	//Log.v("CBEC","Service Started");
         List<RssItem> rssItems = null;
         List<RssItem> rssAllItems = new ArrayList<RssItem>();
         try {
             RssParser parser = new RssParser();
-            for(int i = 0;i<RSS_FEEDS.length;i++)
-            {
-            	rssItems = parser.parse(getInputStream(RSS_FEEDS[i]));
+            //for(int i = 0;i<RSS_FEEDS.length;i++)
+           // {
+            	rssItems = parser.parse(getInputStream(RSS_FEEDS[pos]));
             	rssAllItems.addAll(rssItems);
-            }
+           // }
             
         } catch (XmlPullParserException e) {
             Log.w(e.getMessage(), e);

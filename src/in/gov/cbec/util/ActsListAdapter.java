@@ -43,7 +43,7 @@ public class ActsListAdapter extends BaseAdapter {
    	 
     	if (convertView == null) {
     	    convertView = mInflater.inflate(R.layout.actrow, null);
-    	 
+    	    convertView.setBackgroundResource(R.drawable.list_selector);
     	    holder = new ViewHolder();
     	    holder.text = (TextView) convertView.findViewById(R.id.content);
     	    convertView.setTag(holder);

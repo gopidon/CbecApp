@@ -55,8 +55,14 @@ public class CbecConstants {
 	};
 	
 	public static final String CBEC_ST_ACTS[] = 
-		{"Service Tax Act"
+		{"Chapter V of Finance Act"
 		};
+	
+	public static final String CBEC_NEWS_ACTIVITY_CATEGORIES[] = {
+		"Indian Tax Updates",
+		"Simple Tax India",
+		"CA Club India"
+	};
 	
 	public static final String CBEC_WEB_SHOW_LINK = "SHOW_LINK";
 	

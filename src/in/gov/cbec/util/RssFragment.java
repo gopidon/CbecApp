@@ -36,13 +36,15 @@ public class RssFragment extends Fragment implements OnItemClickListener {
  
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    	Bundle args = this.getArguments();
+    	int pos = args.getInt("position");
         if (view == null) {
             view = inflater.inflate(R.layout.news_fragment, container, false);
             progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
             tv = (TextView) view.findViewById(R.id.loadingtext);
             listView = (ListView) view.findViewById(R.id.listView);
             listView.setOnItemClickListener(this);
-            startService();
+            startService(pos);
         } else { 
             // If we are returning from a configuration change:
             // "view" is still attached to the previous view hierarchy
@@ -53,10 +55,11 @@ public class RssFragment extends Fragment implements OnItemClickListener {
         return view;
     }
  
-    private void startService() {
+    private void startService(int pos) {
     	//Log.v("CBEC","In Start Service");
         Intent intent = new Intent(getActivity(), RssService.class);
         intent.putExtra(RssService.RECEIVER, resultReceiver);
+        intent.putExtra("position", pos);
         getActivity().startService(intent);
         //Log.v("CBEC","After Service Call");
     }

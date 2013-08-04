@@ -1,5 +1,13 @@
 <resources>
 
     <style name="AppTheme" parent="android:Theme.Light" />
+    <style name="Slide">
+        <item name="android:windowEnterAnimation">@animator/slide_in_left</item>
+        <item name="android:windowExitAnimation">@animator/slide_out_left</item>
+    </style>
+    <style name="Fade">
+        <item name="android:windowEnterAnimation">@animator/fadein</item>
+        <item name="android:windowExitAnimation">@animator/fadeout</item>
+    </style>
 
 </resources>

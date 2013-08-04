@@ -9,6 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 public class NewsActivity extends FragmentActivity implements DialogInterface.OnClickListener{
@@ -16,11 +17,13 @@ public class NewsActivity extends FragmentActivity implements DialogInterface.On
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_content);
- 
+        getWindow().getAttributes().windowAnimations = R.style.Slide;
+        Intent i = this.getIntent();
+        int position = i.getIntExtra("position", 0);
         if (savedInstanceState == null) {
           if(CbecUtils.isOnline(this))
           {
-        	  addRssFragment();
+        	  addRssFragment(position);
           }
           else
           {
@@ -30,10 +33,13 @@ public class NewsActivity extends FragmentActivity implements DialogInterface.On
         
     }
  
-    private void addRssFragment() {
+    private void addRssFragment(int pos) {
         
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         RssFragment fragment = new RssFragment();
+        Bundle args = new Bundle();
+        args.putInt("position", pos);
+        fragment.setArguments(args);
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
     }

@@ -10,12 +10,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
-        android:icon="@drawable/cbec"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="in.gov.cbec.SplashScreenActivity"
-            android:icon="@drawable/cbec"
+            android:icon="@drawable/ic_launcher"
             android:label="@string/title_activity_cbec_main"
            >
             <intent-filter>
@@ -41,6 +41,8 @@
             android:name="in.gov.cbec.st.STActsActivity"/>
         <activity
             android:name="in.gov.cbec.CbecWebViewActivity"/>
+        <activity
+            android:name="in.gov.cbec.NewsMainActivity"/>
         <activity
             android:name="in.gov.cbec.NewsActivity"/>
         <service android:name="in.gov.cbec.util.RssService" />

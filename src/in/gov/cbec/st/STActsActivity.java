@@ -28,6 +28,7 @@ public class STActsActivity extends SherlockListActivity {
 
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().getAttributes().windowAnimations = R.style.Slide;
         module=CbecConstants.CBEC_ST_MODULE;
         setListAdapter(new ActsListAdapter(this,CbecConstants.CBEC_ST_ACTS));
     }

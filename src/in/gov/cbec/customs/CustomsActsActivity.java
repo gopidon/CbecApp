@@ -35,6 +35,7 @@ public class CustomsActsActivity extends SherlockListActivity {
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().getAttributes().windowAnimations = R.style.Slide;
         module=CbecConstants.CBEC_CUSTOMS_MODULE;
         setListAdapter(new ActsListAdapter(this,CbecConstants.CBEC_CUSTOMS_ACTS));
         

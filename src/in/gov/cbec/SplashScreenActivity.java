@@ -12,7 +12,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 
 public class SplashScreenActivity extends FragmentActivity implements DialogInterface.OnClickListener {
-	private static int SPLASH_TIME_OUT = 3000;
+	private static int SPLASH_TIME_OUT = 1000;
 	 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

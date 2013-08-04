@@ -46,7 +46,7 @@ public class CbecMainActivity extends TabActivity {
         TabSpec news_spec = tabHost.newTabSpec("Tax News");
         view = LayoutInflater.from(tabHost.getContext()).inflate(R.layout.news_tab, null);
         news_spec.setIndicator(view);
-        Intent news_intent = new Intent(this, NewsActivity.class);
+        Intent news_intent = new Intent(this, NewsMainActivity.class);
         news_spec.setContent(news_intent);
         
        

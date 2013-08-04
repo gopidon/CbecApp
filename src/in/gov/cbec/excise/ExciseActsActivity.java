@@ -30,6 +30,7 @@ public class ExciseActsActivity extends SherlockListActivity {
 
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().getAttributes().windowAnimations = R.style.Slide;
         module=CbecConstants.CBEC_EXCISE_MODULE;
         setListAdapter(new ActsListAdapter(this,CbecConstants.CBEC_EXCISE_ACTS));
     }
