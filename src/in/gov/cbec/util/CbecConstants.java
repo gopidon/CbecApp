@@ -45,14 +45,16 @@ public class CbecConstants {
 		};
 	
 	public static final String CBEC_EXCISE_ACTS[] = 
-		{"Excise Act"
-	};
+		{"Central Excise Act",
+		"Central Excise Tariff Act"
+	    };
 	
 	public static final String CBEC_ST_ACTIVITY_CATEGORIES[] = {
 		"Acts",
 		"Rules",
 		"Notifications",
-		"Circulars"
+		"Circulars",
+		"VCES"
 	};
 	
 	public static final String CBEC_ST_ACTS[] = 
@@ -77,6 +79,7 @@ public class CbecConstants {
 	public static final String CBEC_WEB_CUSTOMS_REGS_LINK="http://cbec.gov.in/customs/cs-act/formatted-htmls/cs-regu-idx.htm";
 	
 	public static final String CBEC_WEB_EXCISE_ACTS_LINK = "http://www.cbec.gov.in/excise/cx-act/cx-act-idx.htm";
+	public static final String CBEC_WEB_EXCISE_TACT_LINK = "http://cbec.gov.in/excise/cxt2012-13/cxt_1213-idx.htm";
 	public static final String CBEC_WEB_EXCISE_NOTIFS_LINK = "http://www.cbec.gov.in/excise/cx-act/cx-notfns-idx.htm";
 	public static final String CBEC_WEB_EXCISE_CIRCULARS_LINK = "http://www.cbec.gov.in/excise/cx-circ-mainbott.html";
 	public static final String CBEC_WEB_EXCISE_RULES_LINK="http://cbec.gov.in/excise/cxrules/cx-rules-main.htm";
@@ -86,5 +89,6 @@ public class CbecConstants {
 	public static final String CBEC_WEB_ST_NOTIFS_LINK = "http://www.servicetax.gov.in/servtax_notfns_idx-bottom.htm";
 	public static final String CBEC_WEB_ST_CIRCULARS_LINK = "http://www.servicetax.gov.in/stcircular.htm";
 	public static final String CBEC_WEB_ST_RULES_LINK = "http://www.servicetax.gov.in/st-rulemainpg.htm";
+	public static final String CBEC_WEB_ST_VCES_LINK = "http://cbec.gov.in/rhs-misc/st-vces-idx.htm";
 	
 }

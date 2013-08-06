@@ -38,6 +38,9 @@ public class STMainActivity extends ListActivity {
 			case 3:
 				showSTCirculars();
 				break;
+			case 4:
+				showVCES();
+				break;
 			
 		}
 			
@@ -66,6 +69,12 @@ public class STMainActivity extends ListActivity {
 	{
 		Intent i = new Intent(this, CbecWebViewActivity.class);
 		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_ST_RULES_LINK );
+        this.startActivity(i);
+	}
+	public void showVCES()
+	{
+		Intent i = new Intent(this, CbecWebViewActivity.class);
+		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_ST_VCES_LINK );
         this.startActivity(i);
 	}
 }

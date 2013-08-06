@@ -80,6 +80,12 @@ public class ExciseActsActivity extends SherlockListActivity {
 			i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_EXCISE_ACTS_LINK );
 	        this.startActivity(i);
 		}
+		else if(position==1)
+		{
+			Intent i = new Intent(this, CbecWebViewActivity.class);
+			i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_EXCISE_TACT_LINK );
+	        this.startActivity(i);
+		}
 		
 		else
 		{
