@@ -24,7 +24,9 @@ public class CbecConstants {
 		"Notifications",
 		"Circulars",
 		"Traveller's Guide",
-		"Regulations"
+		"Regulations",
+		"Exchange Rate",
+		"Drawback Schedule"
 		};
 	
 	public static final String CBEC_CUSTOMS_ACTS[] = 
@@ -77,6 +79,8 @@ public class CbecConstants {
 	public static final String CBEC_WEB_CUSTOMS_TR_GUIDE_LINK = "https://docs.google.com/viewer?url=http://www.cbec.gov.in/trvler-guide_ason22may2013.pdf";
 	public static final String CBEC_WEB_CUSTOMS_RULES_LINK="http://cbec.gov.in/customs/cs-act/formatted-htmls/cs-rules-idx.htm";
 	public static final String CBEC_WEB_CUSTOMS_REGS_LINK="http://cbec.gov.in/customs/cs-act/formatted-htmls/cs-regu-idx.htm";
+	public static final String CBEC_WEB_CUSTOMS_DBK_SCH_LINK="http://cbec.gov.in/customs/dbk-schdule/dbk2012/dbk-idx2012.htm";
+	public static final String CBEC_WEB_CUSTOMS_EXCH_RATE_LINK="http://cbec.gov.in/exchange-rate-idx.htm";
 	
 	public static final String CBEC_WEB_EXCISE_ACTS_LINK = "http://www.cbec.gov.in/excise/cx-act/cx-act-idx.htm";
 	public static final String CBEC_WEB_EXCISE_TACT_LINK = "http://cbec.gov.in/excise/cxt2012-13/cxt_1213-idx.htm";

@@ -696,7 +696,8 @@ containing a value of this type.
         public static final int abs__primary_text_disable_only_holo_light=0x7f070007;
         public static final int abs__primary_text_holo_dark=0x7f070008;
         public static final int abs__primary_text_holo_light=0x7f070009;
-        public static final int tab_text=0x7f07000a;
+        public static final int lnr_layt_srch=0x7f07000a;
+        public static final int tab_text=0x7f07000b;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -920,20 +921,22 @@ containing a value of this type.
         public static final int ic_error=0x7f020078;
         public static final int ic_launcher=0x7f020079;
         public static final int ic_menu_refresh=0x7f02007a;
-        public static final int ic_news=0x7f02007b;
-        public static final int ic_news_item=0x7f02007c;
-        public static final int list_row_bg=0x7f02007d;
-        public static final int list_row_selected_bg=0x7f02007e;
-        public static final int list_selector=0x7f02007f;
-        public static final int marker=0x7f020080;
-        public static final int news=0x7f020081;
-        public static final int newsitem=0x7f020082;
-        public static final int rt_arrow=0x7f020083;
-        public static final int splash=0x7f020084;
-        public static final int tab_bg=0x7f020085;
-        public static final int tab_bg_normal=0x7f020086;
-        public static final int tab_bg_selected=0x7f020087;
-        public static final int tick=0x7f020088;
+        public static final int ic_menu_search=0x7f02007b;
+        public static final int ic_menu_search_holo_dark=0x7f02007c;
+        public static final int ic_news=0x7f02007d;
+        public static final int ic_news_item=0x7f02007e;
+        public static final int list_row_bg=0x7f02007f;
+        public static final int list_row_selected_bg=0x7f020080;
+        public static final int list_selector=0x7f020081;
+        public static final int marker=0x7f020082;
+        public static final int news=0x7f020083;
+        public static final int newsitem=0x7f020084;
+        public static final int rt_arrow=0x7f020085;
+        public static final int splash=0x7f020086;
+        public static final int tab_bg=0x7f020087;
+        public static final int tab_bg_normal=0x7f020088;
+        public static final int tab_bg_selected=0x7f020089;
+        public static final int tick=0x7f02008a;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f050020;
@@ -975,30 +978,32 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
-        public static final int action_refresh=0x7f050041;
-        public static final int cbecLogo=0x7f05003f;
+        public static final int action_refresh=0x7f050042;
+        public static final int action_search=0x7f050043;
+        public static final int cbecLogo=0x7f050040;
         public static final int content=0x7f050033;
-        public static final int cusMainListView=0x7f050037;
+        public static final int cusMainListView=0x7f050038;
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050026;
-        public static final int fragment_container=0x7f050038;
+        public static final int fragment_container=0x7f050039;
         public static final int homeAsUp=0x7f050006;
-        public static final int itemTitle=0x7f05003e;
+        public static final int itemTitle=0x7f05003f;
+        public static final int layoutId=0x7f050035;
         public static final int listMode=0x7f050002;
-        public static final int listView=0x7f050039;
-        public static final int loadingtext=0x7f05003b;
-        public static final int menu_settings=0x7f050040;
-        public static final int newsMainListView=0x7f05003c;
+        public static final int listView=0x7f05003a;
+        public static final int loadingtext=0x7f05003c;
+        public static final int menu_settings=0x7f050041;
+        public static final int newsMainListView=0x7f05003d;
         public static final int normal=0x7f050001;
-        public static final int progressBar=0x7f05003a;
-        public static final int progressBar2=0x7f05003d;
+        public static final int progressBar=0x7f05003b;
+        public static final int progressBar2=0x7f05003e;
         public static final int showCustom=0x7f050008;
         public static final int showHome=0x7f050005;
         public static final int showTitle=0x7f050007;
         public static final int tabMode=0x7f050003;
         public static final int tableLayout1=0x7f050032;
-        public static final int tabsLayout=0x7f050035;
-        public static final int tabsText=0x7f050036;
+        public static final int tabsLayout=0x7f050036;
+        public static final int tabsText=0x7f050037;
         public static final int useLogo=0x7f050004;
         public static final int wrap_content=0x7f050000;
         public static final int wv1=0x7f050034;
@@ -1052,6 +1057,7 @@ containing a value of this type.
         public static final int cusactsmenu=0x7f0c0001;
         public static final int exactsmenu=0x7f0c0002;
         public static final int stactsmenu=0x7f0c0003;
+        public static final int webviewmenu=0x7f0c0004;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

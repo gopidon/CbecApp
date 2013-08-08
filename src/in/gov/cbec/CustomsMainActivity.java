@@ -62,10 +62,19 @@ public class CustomsMainActivity extends FragmentActivity implements OnItemClick
 				break;
 			case 5:
 				showCusRegulations();
-				break;	
+				break;
+			case 6:
+				showExchgRate();
+				break;
+			case 7:
+				showDbkSchedule();
+				break;
 		}
     }
 	
+	
+
+
 	public void showCustomsActs()
 	{
 		Intent i = new Intent(this, CustomsActsActivity.class);
@@ -148,6 +157,21 @@ public class CustomsMainActivity extends FragmentActivity implements OnItemClick
 		}
 	}
 
+	
+	private void showDbkSchedule() {
+		// TODO Auto-generated method stub
+		Intent i = new Intent(this, CbecWebViewActivity.class);
+		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_CUSTOMS_DBK_SCH_LINK );
+        this.startActivity(i);
+	}
+
+
+	private void showExchgRate() {
+		// TODO Auto-generated method stub
+		Intent i = new Intent(this, CbecWebViewActivity.class);
+		i.putExtra(CbecConstants.CBEC_WEB_SHOW_LINK, CbecConstants.CBEC_WEB_CUSTOMS_EXCH_RATE_LINK );
+        this.startActivity(i);
+	}
 
 	@Override
 	public void onClick(DialogInterface dialog, int arg1) {
